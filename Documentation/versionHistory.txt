@@ -1,0 +1,15 @@
+Project Name: Survival Shooter
+https://unity3d.com/pt/learn/tutorials/projects/survival-shooter
+
+Version History
+
+10/07/15 - Started the tutorial and place the project in GitHub
+	https://github.com/daltonbr/survivalshooter
+
+[0.2] 
+	*	Now in Unity 5 we have a option "Output" in Audio Source
+		it would be nice if we set up the sound mixer.
+	*	Xbox controller already mooving the player BUT they don't 
+		turn around with the analog rick stick (yet) only with the mouse
+		(as intended to)
+
