@@ -60,7 +60,7 @@ public class EnemyHealth : MonoBehaviour
     {
         isDead = true;
 
-        capsuleCollider.isTrigger = true;
+        capsuleCollider.isTrigger = true;  // since the enemy is Dead, we don't want him colliding with others.
 
         anim.SetTrigger ("Dead");
 
@@ -72,7 +72,7 @@ public class EnemyHealth : MonoBehaviour
     public void StartSinking ()
     {
         GetComponent <NavMeshAgent> ().enabled = false;
-        GetComponent <Rigidbody> ().isKinematic = true;
+        GetComponent <Rigidbody> ().isKinematic = true;  // Unity will not update the cache of static objects - optimization
         isSinking = true;
         //ScoreManager.score += scoreValue;
         Destroy (gameObject, 2f);
