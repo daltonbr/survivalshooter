@@ -23,6 +23,7 @@ public class PauseManager : MonoBehaviour {
 		if ( (Input.GetButtonDown("Cancel"))  ) 
 		{
 			canvas.enabled = !canvas.enabled;
+            Cursor.visible = enabled;
 			Pause();
 		}
 	}
