@@ -74,7 +74,8 @@ QualitySettings:
     lodBias: .699999988
     maximumLODLevel: 0
     particleRaycastBudget: 64
-    excludedTargetPlatforms: []
+    excludedTargetPlatforms:
+    - Standalone
   - serializedVersion: 2
     name: Good
     pixelLightCount: 2
@@ -120,7 +121,8 @@ QualitySettings:
     lodBias: 1.5
     maximumLODLevel: 0
     particleRaycastBudget: 1024
-    excludedTargetPlatforms: []
+    excludedTargetPlatforms:
+    - Standalone
   - serializedVersion: 2
     name: Fantastic
     pixelLightCount: 64

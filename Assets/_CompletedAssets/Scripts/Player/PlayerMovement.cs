@@ -35,14 +35,30 @@ namespace CompleteProject
             float h = CrossPlatformInputManager.GetAxisRaw("Horizontal");
             float v = CrossPlatformInputManager.GetAxisRaw("Vertical");
 
+            // Axis for turning with the Joystick
+            float rightH = CrossPlatformInputManager.GetAxisRaw("RightHorizontal");
+            float rightV = CrossPlatformInputManager.GetAxisRaw("RightVertical");
+            
             // Move the player around the scene.
             Move (h, v);
 
+
+            if (rightH == 0 && rightV == 0)  // pequena gambiarra (quando right analog esta parado)
+            {
+                Turning();   // vira com o mouse
+            }
+            else
+            {
+                // Turn the player with the controler
+                Turning(rightH, rightV);
+                Cursor.visible = false;   // esconde o cursor do mouse
+            }
+
             // Turn the player to face the mouse cursor.
-            Turning ();
+            //Turning ();  
 
             // Animate the player.
-            Animating (h, v);
+            Animating(h, v);
         }
 
 
@@ -58,9 +74,23 @@ namespace CompleteProject
             playerRigidbody.MovePosition (transform.position + movement);
         }
 
+        // Turning fot the joystick
+        void Turning (float h, float v)
+        {
+            Vector3 direction = new Vector3(h, 0f, v).normalized;
+            
+            //Debug.Log(h + " , " + v);
+            transform.LookAt(transform.position + direction);
+
+            //if (direction != null)
+            //{
+                // auto-fire ??
+            //}
+        }
 
         void Turning ()
         {
+
 #if !MOBILE_INPUT
             // Create a ray from the mouse cursor on screen in the direction of the camera.
             Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
